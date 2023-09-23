@@ -12,20 +12,15 @@ class ProductController extends BaseController
     {
         $this->product = new ProductModel();
     }
-
-
-    public function Delete($Id)
+    public function delete($id)
     {
-        $this->product->Delete($Id);
+        $this->product->delete($id);
         return redirect()->to('product');
     }
-    
-
-
-    public function edit($Id)
+    public function edit($id)
 {
     // Fetch the existing product data by ID from the database
-    $existingProduct = $this->product->find($Id);
+    $existingProduct = $this->product->find($id);
 
     if (!$existingProduct) {
         // Handle the case where the product with the given ID is not found (e.g., show an error message)
@@ -37,12 +32,12 @@ class ProductController extends BaseController
         'ProductName' => $this->request->getVar('ProductName'),
         'ProductDescription' => $this->request->getVar('ProductDescription'),
         'ProductCategory' => $this->request->getVar('ProductCategory'),
-        'ProductQuantity' => $this->request->getVar('ProductQuantity'),
-        'ProductPrice' => $this->request->getVar('ProductPrice'),
+        'Quantity' => $this->request->getVar('Quantity'),
+        'Price' => $this->request->getVar('Price'),
     ];
 
     // Use the update method provided by CodeIgniter's Model to update the product
-    $this->product->update($Id, $data);
+    $this->product->update($id, $data);
 
     // Redirect back to the product listing page or wherever you prefer
     return redirect()->to('edit')->with('success', 'Product updated successfully');
@@ -55,8 +50,8 @@ class ProductController extends BaseController
             'ProductName' => $this->request->getVar('ProductName'),
             'ProductDescription' => $this->request->getVar('ProductDescription'),
             'ProductCategory' => $this->request->getVar('ProductCategory'),
-            'ProductQuantity' => $this->request->getVar('ProductQuantity'),
-            'ProductPrice' => $this->request->getVar('ProductPrice'),
+            'Quantity' => $this->request->getVar('Quantity'),
+            'Price' => $this->request->getVar('Price'),
         ];
         $this->product->save($data);
         return redirect()->to('product');

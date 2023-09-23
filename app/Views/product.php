@@ -24,7 +24,7 @@
         <input type="submit" value="save"> 
     </form>
 
-    <h1>Product List</h1>
+    <h1>Product Listing</h1>
     <table border="1">
         <tr>
             <th>ProductName</th>
@@ -42,8 +42,8 @@
                 <td><?= $pr['ProductCategory'] ?></td>
                 <td><?= $pr['ProductQuantity'] ?></td>
                 <td><?= $pr['ProductPrice'] ?></td>
-                <td><a href="/edit/<?= $pr['Id'] ?>">Update</a>
-                    <a href="/Delete/<?= $pr['Id'] ?>">Delete</a> 
+                <td><a href="/edit/<?= $pr['id'] ?>">update</a>
+                    <a href="/delete/<?= $pr['id'] ?>">delete</a> 
                 </td>
             </tr>
         <?php endforeach; ?>

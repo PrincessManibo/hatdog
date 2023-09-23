@@ -8,12 +8,12 @@ class ProductModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'products';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'Id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['Name','Color','Quantity', 'Size','Price'];
+    protected $allowedFields    = ['ProductName', 'ProductDescription', 'ProductCategory','ProductQuantity','ProductPrice'];
 
     // Dates
     protected $useTimestamps = false;
